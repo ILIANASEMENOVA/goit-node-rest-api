@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import HttpError from "../../helpers/HttpError.js";
-import { User } from "../../models/user.js";
+import { User } from "../../models/users.js";
 
 export const login = async (req, res, next) => {
   try {
