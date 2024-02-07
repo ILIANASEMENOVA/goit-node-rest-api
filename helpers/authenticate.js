@@ -1,6 +1,6 @@
 import HttpError from "../helpers/HttpError.js";
 import jwt from "jsonwebtoken";
-import { User } from "../models/user.js";
+import { User } from "../models/users.js";
 
 export const authenticate = async (req, res, next) => {
   const { SECRET_KEY } = process.env;

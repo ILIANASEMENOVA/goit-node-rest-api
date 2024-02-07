@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import HttpError from "../../helpers/HttpError.js";
-import { User } from "../../models/user.js";
+import { User } from "../../models/users.js";
 
 export const register = async (req, res, next) => {
   try {
