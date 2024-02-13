@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import HttpError from "../../helpers/HttpError.js";
 import { User } from "../../models/users.js";
+import gravatar from "gravatar";
 
 export const register = async (req, res, next) => {
   try {
@@ -12,8 +13,13 @@ export const register = async (req, res, next) => {
     }
 
     const hashPassword = await bcrypt.hash(password, 10);
+    const avatarURL = gravatar.url(email);
 
-    const newUser = await User.create({ ...req.body, password: hashPassword });
+    const newUser = await User.create({
+      ...req.body,
+      password: hashPassword,
+      avatarURL,
+    });
 
     res.status(201).json({
       email: newUser.email,

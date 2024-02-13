@@ -23,6 +23,7 @@ contactsRouter.delete("/:id", authenticate, isValidId, deleteContact);
 
 contactsRouter.post(
   "/",
+
   authenticate,
   validateBody(schemas.createContactSchema),
   createContact
