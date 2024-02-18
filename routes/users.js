@@ -10,6 +10,12 @@ import { upload } from "../helpers/upload.js";
 
 router.post("/register", validateBody(schemas.registerSchema), Auth.register);
 router.post("/login", validateBody(schemas.loginSchema), Auth.login);
+router.get("/verify/:verificationToken", Auth.verifyEmail);
+router.post(
+  "/verify",
+  validateBody(schemas.emailSchema),
+  Auth.resendVerifyEmail
+);
 router.get("/current", authenticate, Auth.getCurrent);
 router.post("/logout", authenticate, Auth.logout);
 router.patch(
